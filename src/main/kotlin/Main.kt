@@ -1,11 +1,8 @@
-import Clases.Car
-import Clases.Mario
-import Clases.Person
-import Clases.Phone
+import Clases.*
 
 fun main() {
     // TELEFONO
-    var myPhone = Phone()
+    val myPhone = Phone()
     myPhone.getTurn()
     myPhone.turnON()
     myPhone.getTurn()
@@ -13,7 +10,7 @@ fun main() {
     println("---")
 
     // VEHICULO
-    var myCar = Car("Gris", "Hyundai", "Tucson", "MAX-0123")
+    val myCar = Car("Gris", "Hyundai", "Tucson", "MAX-0123")
 
     println("---")
 
@@ -29,12 +26,12 @@ fun main() {
 
     println("---")
 
-    var vochoNegro = Car("VolksWagen", "Vocho")
+    val vochoNegro = Car("VolksWagen", "Vocho")
     println("El color del Vocho es: ${vochoNegro.color}")
 
     println("---")
 
-    var pointer = Car (
+    val pointer = Car (
         color = "Azul",
         marca = "Volkswagen",
         modelo = "Pointer"
@@ -59,4 +56,32 @@ fun main() {
     println("Vidas: ${player1.vidas}")
     player1.collision("Goomba")
     println("Vidas: ${player1.vidas}")
+
+    println("---")
+
+    // CLASE 17-10
+    val player2 = Mario() // MAIN
+    for (i in 1..5){
+        if (player2.isAlive){
+            player2.collision("Goomba")
+            println("Te quedan ${player2.getLives()}")
+        }
+
+    }
+
+    println("---")
+
+    val player3 = Mario()
+    if (player3.isAlive){
+        player3.collision("Goomba")
+        println("Te quedan ${player3.getLives()}")
+    }
+
+    println("---")
+
+    val player4 = Mario()
+    player4.collision("Star")
+
+    val newKoopa = Koopa() // MAIN
+    newKoopa.collision("Weapon")
 }
